@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-07-02 03:45:54"
+	"lastUpdated": "2022-07-11 08:02:48"
 }
 
 /*
@@ -69,12 +69,25 @@ function scrape(doc, url = doc.location.href) {
 	//分类
 	sectorDiv = doc.head.querySelector('meta[name="keywords"]');
 	sector = sectorDiv.content;
-	Zotero.debug(sector);
+	// Zotero.debug(sector);
 	
 	//description
 	despDiv = doc.head.querySelector('meta[name="description"]');
 	desp = despDiv.content;
 	// Zotero.debug(despDiv);
+
+	//date
+	dateDiv = doc.body.querySelector("div.timer > span")
+	date = dateDiv.innerText;
+	//
+	let dateRegex = /\d{4}-\d{2}-\d{2}/;
+	let dateMatch = date.match(dateRegex);
+	if (dateMatch){
+		// Zotero.debug(dateMatch[0]);	
+		// item.date = paperMatch[0];
+		item.date = ZU.strToISO(dateMatch[0]);
+	}
+	// Zotero.debug(date);
 
 	item.title = title;
 	item.websiteTitle = "量化小论坛";
