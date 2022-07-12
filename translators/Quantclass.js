@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-07-11 08:02:48"
+	"lastUpdated": "2022-07-11 08:37:49"
 }
 
 /*
@@ -77,7 +77,7 @@ function scrape(doc, url = doc.location.href) {
 	// Zotero.debug(despDiv);
 
 	//date
-	dateDiv = doc.body.querySelector("div.timer > span")
+	dateDiv = doc.body.querySelector("div.timer")
 	date = dateDiv.innerText;
 	//
 	let dateRegex = /\d{4}-\d{2}-\d{2}/;
@@ -85,7 +85,7 @@ function scrape(doc, url = doc.location.href) {
 	if (dateMatch){
 		// Zotero.debug(dateMatch[0]);	
 		// item.date = paperMatch[0];
-		item.date = ZU.strToISO(dateMatch[0]);
+		item.date = ZU.strToISO(dateMatch[dateMatch.length-1]);
 	}
 	// Zotero.debug(date);
 
