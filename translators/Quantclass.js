@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-07-11 08:37:49"
+	"lastUpdated": "2022-07-22 02:22:55"
 }
 
 /*
@@ -51,10 +51,8 @@ async function doWeb(doc, url) {
 }
 
 function scrape(doc, url = doc.location.href) {
-	// TODO: implement or add a scrape function template
 	const item = new Zotero.Item("webpage");
 
-	//Zotero.debug(doc.head.querySelectorAll("title"));
 	//标题
 	title = doc.head.querySelectorAll("title")[0].innerText;
 	title = title.replace(" - 量化小论坛","");
@@ -74,12 +72,10 @@ function scrape(doc, url = doc.location.href) {
 	//description
 	despDiv = doc.head.querySelector('meta[name="description"]');
 	desp = despDiv.content;
-	// Zotero.debug(despDiv);
 
 	//date
 	dateDiv = doc.body.querySelector("div.timer")
 	date = dateDiv.innerText;
-	//
 	let dateRegex = /\d{4}-\d{2}-\d{2}/;
 	let dateMatch = date.match(dateRegex);
 	if (dateMatch){
