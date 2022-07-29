@@ -9,7 +9,7 @@
 	"inRepository": true,
 	"translatorType": 4,
 	"browserSupport": "gcsibv",
-	"lastUpdated": "2022-07-22 02:22:55"
+	"lastUpdated": "2022-07-29 07:56:29"
 }
 
 /*
@@ -90,7 +90,7 @@ function scrape(doc, url = doc.location.href) {
 	item.abstractNote = desp;
 	item.url = url;
 	item.creators = [{"lastName":author,"userId":userId}];
-	item.attachments.push({"url": url, title: "Snapshot"});
+	//item.attachments.push({"url": url, title: "Snapshot"});
 	item.sector = sector;
 	// item.postType = sector;
 
